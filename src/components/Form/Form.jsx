@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
 import { FiUser } from 'react-icons/fi';
 import { MdOutlineAddAPhoto } from 'react-icons/md';
 import css from './Form.module.css';
 import PropTypes from 'prop-types';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contacts/contactsSlice';
+import { postContactDBThunk } from 'redux/contactsDB/contactsDB';
 
 const Form = ({ toggleModal }) => {
   const [name, setName] = useState('');
@@ -14,7 +13,7 @@ const Form = ({ toggleModal }) => {
   const [url, setUrl] = useState('');
 
   const dispatch = useDispatch();
-  const { contacts } = useSelector(state => state.contactsCombine);
+  const { contacts } = useSelector(state => state.contactsDBCombine);
 
   const isIncludingName = (name, array) => {
     const lowName = name.toLowerCase();
@@ -29,13 +28,13 @@ const Form = ({ toggleModal }) => {
       return;
     }
 
-    dispatch(addContact(newItem));
+    dispatch(postContactDBThunk(newItem));
   };
 
   const handlerSubmit = e => {
     e.preventDefault();
-    const modelId = nanoid();
-    addUser({ id: modelId, name: name, number: number, url: url });
+
+    addUser({ name, number, url });
     toggleModal();
   };
 
