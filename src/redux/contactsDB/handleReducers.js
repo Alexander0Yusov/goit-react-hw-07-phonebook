@@ -4,7 +4,7 @@ export const handlerPending = state => {
 
 export const handlerRejected = (state, { payload }) => {
   state.isLoading = false;
-  state.error = payload;
+  state.error = payload.data;
 };
 
 export const handlerFulfilledGet = (state, { payload }) => {
