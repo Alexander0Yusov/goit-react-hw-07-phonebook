@@ -6,9 +6,7 @@ import {
   getContactsDBThunk,
   deleteContactDBThunk,
 } from 'redux/contactsDB/thunks';
-
-const contactsSelector = state => state.contactsDBCombine;
-const filterSelector = state => state.filterCombine;
+import { contactsSelector, filterSelector } from 'redux/selectorsCallback';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -42,7 +40,7 @@ const Contacts = () => {
           />
         ))}
       </ul>
-      {error && <h4>{error}</h4>}
+      {error && <h4>{'Connection Error!'}</h4>}
       {isLoading && <h6>{'Loading...'}</h6>}
     </div>
   );

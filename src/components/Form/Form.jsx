@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { postContactDBThunk } from 'redux/contactsDB/thunks';
+import { contactsSelector } from 'redux/selectorsCallback';
 
 const Form = ({ toggleModal }) => {
   const [name, setName] = useState('');
@@ -13,7 +14,7 @@ const Form = ({ toggleModal }) => {
   const [url, setUrl] = useState('');
 
   const dispatch = useDispatch();
-  const { contacts } = useSelector(state => state.contactsDBCombine);
+  const { contacts } = useSelector(contactsSelector);
 
   const isIncludingName = (name, array) => {
     const lowName = name.toLowerCase();

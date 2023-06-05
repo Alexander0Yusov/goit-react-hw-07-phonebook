@@ -1,37 +1,23 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getContactsDB, postContactDB, deleteContactDB } from './requests';
 
-// не отрабатывает редьюсер .rejected, поэтому try-catch
-
 export const getContactsDBThunk = createAsyncThunk(
   'contactsDB/getContacts',
   async () => {
-    try {
-      return await getContactsDB();
-    } catch (error) {
-      return error;
-    }
+    return await getContactsDB();
   }
 );
 
 export const postContactDBThunk = createAsyncThunk(
   'contactsDB/postContact',
   async item => {
-    try {
-      return await postContactDB(item);
-    } catch (error) {
-      return error;
-    }
+    return await postContactDB(item);
   }
 );
 
 export const deleteContactDBThunk = createAsyncThunk(
   'contactsDB/deleteContact',
   async id => {
-    try {
-      return await deleteContactDB(id);
-    } catch (error) {
-      return error;
-    }
+    return await deleteContactDB(id);
   }
 );
