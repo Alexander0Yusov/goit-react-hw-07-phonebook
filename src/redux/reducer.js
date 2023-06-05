@@ -1,15 +1,14 @@
 import { combineReducers } from '@reduxjs/toolkit';
-// import { contactsReducer } from './contacts/contactsSlice';
 import { filterReducer } from './filter/filterSlice';
-import { contactsDBReducer } from './contactsDB/contactsDB';
+import { contactsDBReducer } from './contactsDB/contactsDBSlice';
 
 export const reducer = combineReducers({
-  // contactsCombine: contactsReducer,
   contactsDBCombine: contactsDBReducer,
   filterCombine: filterReducer,
 });
 
 // вариант
 // export const reducer = {
-//   contacts: contactsReducer,
+//   contactsDBCombine: contactsDBReducer,
+//   filterCombine: filterReducer,
 // };

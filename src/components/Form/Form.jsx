@@ -5,7 +5,7 @@ import css from './Form.module.css';
 import PropTypes from 'prop-types';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { postContactDBThunk } from 'redux/contactsDB/contactsDB';
+import { postContactDBThunk } from 'redux/contactsDB/thunks';
 
 const Form = ({ toggleModal }) => {
   const [name, setName] = useState('');
